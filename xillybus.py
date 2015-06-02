@@ -73,9 +73,7 @@ class Xillybus():
         return value
    
     def write_str(self, ptr, value):
-        #value = value[::-1] # Reverse string, LowHigh -> HighLow
         self.xmap.seek(ptr)
-        #self.xmap.write_byte(int(value, 16) & 0xFF)
         self.xmap.write_byte(value & 0xFF)
         for i in range(1, round(len('{0:x}'.format(value)) / 2 + 0.5)):
             self.xmap.write_byte(value >> (i * 8) & 0xFF)
@@ -85,5 +83,4 @@ class Xillybus():
         value = self.xmap.read_byte()
         for i in range(1, length):
             value += self.xmap.read_byte() << (i * 8)
-        #return '{:0{length}x}'.format(value, length = length * 2)[::-1] # Fill leading 0 and reverse HighLow -> LowHigh
         return value
