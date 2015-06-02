@@ -1,16 +1,17 @@
-# plmem
-Utility to write and read date to/from FPGA registers over Xillybus Lite
+# Xillybus
+Python lib to write and read date to/from FPGA registers over Xillybus Lite
 
 Based on http://xillybus.com/xillybus-lite
 
 Example:
 
 ```
-#!/usr/bin/python 3
-import plmem
+#!/usr/bin/python3
+import xillybus
 
-if __name__ == '__main__':
-	x=plmem.Xillybus(/dev/uio0)
-	val=x.read_byte(0x04)
-	print(hex(val))
+bus=xillybus.Xillybus('/dev/uio0')
+bus.read_byte(0x04)
+print(hex(val))
 ```
+
+Based on plmem utility
