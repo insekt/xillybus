@@ -1,5 +1,5 @@
 # Xillybus
-Python lib to write and read date to/from FPGA registers over Xillybus Lite
+Python lib to write and read data to/from FPGA registers over Xillybus Lite
 
 Compatible with versions 2 and 3
 
